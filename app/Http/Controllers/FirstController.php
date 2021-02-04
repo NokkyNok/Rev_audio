@@ -13,5 +13,11 @@ class FirstController extends Controller
 
        return view('Front.index',compact('operation'));
    }
+
+   public function about()
+   {
+
+       return view('Front.about');
+   }
     
 }

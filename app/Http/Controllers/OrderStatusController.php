@@ -22,6 +22,8 @@ class OrderStatusController extends Controller
         
     }
 
+    
+
 
     //pendings function//
     public function pending()

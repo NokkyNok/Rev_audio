@@ -2,61 +2,72 @@
 
 @section('content')
 
-<div class="section-top-border">
-				<h3 class="mb-30 title_color">Table</h3>
-				<div class="progress-table-wrap">
-					<div class="progress-table">
-						<div class="table-head">
-							<div class="serial">File_name</div>
-							<div class="country">Type</div>
-							<div class="visit">Cost</div>
-							<div class="percentage"></div>
-						</div>
-                        
-						<div class="table-row">
-                        
-							<div class="serial">{{$active_uploads->file}}</div>
-							<div class="country"> <i class="fa fa-file-audio-o" aria-hidden="true"></i></div>
-							<div class="visit">{{$active_uploads->cost}}</div>
-							<div>
-							   <a href=" {{route('cart.add',$active_uploads->id)}}" class="btn btn-success p-3" >Add to cart</a>
-							<!--
-                	         <form id="delete-form-{{ $active_uploads->id }}" method="post" action="{{ route('check_status.destroy',$active_uploads->id) }}" style="display: none">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                              </form>
-                	             <a href="" onclick="if(confirm('Are you sure, You Want to delete this?'))
-                	                    {
-                                     event.preventDefault();
-                                       document.getElementById('delete-form-{{ $active_uploads->id }}').submit();
-                                         }
-                                         else{
-                                          event.preventDefault();
-                                        }"
+<section class="feature_area section_gap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-4">
+            <div class="single_feature">
+              <div class="desc">
+                <h4 class="mt-3 mb-2"> Media FileName</h4>
+                <p>
+                  {{$active_uploads->file}}
+                </p>
+              </div>
+            </div>
+          </div>
 
+          <div class="col-lg-3 col-md-4">
+            <div class="single_feature">
+              <div class="desc">
+                <h4 class="mt-3 mb-2">File duration in Minute</h4>
+                <p>Hi, you are about to upload a file of length
+                {{$active_uploads->duration}} Minutes
+                </p>
+              </div>
+            </div>
+          </div>
 
-                	               class="">Remove</a>
-								   -->
-                           </div>
-						   
-                      
-						</div>
-						
+          <div class="col-lg-3 col-md-4">
+            <div class="single_feature">
+              <div class="desc">
+                <h4 class="mt-3 mb-2">Cost</h4>
+                <bold>
+                ${{$active_uploads->cost}}
+                </bold>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 right-contents mt-3">
+                    <ul>
+                    
                         
-						
-					
-						
-					</div>
-				</div>
-			</div>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Transaction Fee </p>
+                                <span>0.00</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Available Files </p>
+                                <span>1</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Totals </p>
+                                <span>${{$active_uploads->cost}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="{{route('cart.adddirect',$active_uploads->id)}}" class="btn btn-warning p-2  enroll rounded-0 text-dark">Proceed to Checkout</a>
+                    <a href="{{route('cart.add',$active_uploads->id)}}" class="primary-btn2 mt-3 text-uppercase enroll rounded-0 text-white">Add to cart</a>
+              </div>
+        </div>
+      </div>
+    </section>
+    <!--================ End Feature Area =================-->
 
-            <h2 class="">
-			@include('Front.base.messages')
-    
-    
-	
-  </h2>
-<div class="section-top-border">
 
 <section class="about_area section_gap">
       <div class="container">

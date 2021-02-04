@@ -28,6 +28,20 @@ class CartsController extends Controller
         return redirect()->route('cart.index');
 
     }
+
+    public function adddirect(Trancribe $file)
+    {
+        \Cart::session(Auth::id())->add(array(
+            'id' => $file->id,
+            'name' => $file->file,
+            'price' => $file->cost,
+            'quantity' => 1,
+            'attributes' => array(),
+            'associatedModel' => $file
+        ));
+        return redirect()->route('payment.index');
+
+    }
     public function destroy($id)
     {
         \Cart::session(Auth::id())->remove($id);

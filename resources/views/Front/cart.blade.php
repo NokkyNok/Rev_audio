@@ -1,57 +1,69 @@
 @extends ('Front.base.basefile')
 
 @section('content')
+<!--================ Start Course Details Area =================-->
+<section class="course_details_area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 course_details_left">
+                    <div class="content_wrapper">
+                       
 
-<div class="section-top-border">
-				<h3 class="mb-30 title_color">Table</h3>
-				<div class="progress-table-wrap">
-					<div class="progress-table">
-					
-						<div class="table-head">
-							<div class="serial">File_name</div>
-							<div class="country">Type</div>
-							<div class="visit">Cost</div>
-							<div class="percentage"></div>
-						</div>
-					
-					@include('Front.base.messages')
-                        @forelse ($cartitems as $cartitem)
-						<div class="table-row">
-                        
-							<div class="serial">{{$cartitem->name}}</div>
-							<div class="country"> <i class="fa fa-file-audio-o" aria-hidden="true"></i></div>
-							<div class="visit">{{$cartitem->price}}</div>
-							<div>
-							   <a href="{{route('cart.destroy', $cartitem->id)}}" class="" >Remove</a>
-							<!--
-                	         
-								   -->
-                           </div>
-						   
-                      
-						</div>
-						@empty
-                         <h3>No item in the cart</h3>
-						@endforelse
-                        
-						
-					
-						
-					</div>
-                   <div  class="text-center"><h2>Total Cost:: $ {{\Cart::session(Auth::id())->getTotal()}}</h2></div>
-				</div>
-			</div>
+                        <h4 class="title">Cart Content</h4>
+                        <div class="content">
+                            <ul class="course_list">
+                            @foreach($cartitems as $cartitem)
+                                <li class="justify-content-between d-flex">
+                                    <p class="text-truncate">{{$cartitem->name}}</p>
+                                   
+                                    <i class="fa fa-trash" aria-hidden="true"></i><a href="{{route('cart.destroy', $cartitem->id)}}" class="" >Remove</a>
+                                </li>
+                              @endforeach
+                               
 
-            <h2 class="">
-			<a class="btn btn-primary" href="/payment">
-                  Proceed to Pay <i class="ti-arrow-right ml-1"></i>
-            </a>
-			<!--
-       
-	   -->
-       
-	
-  </h2>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 right-contents mt-3">
+                    <ul>
+                    
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p> Name</p>
+                                <span class="or">{{Auth::user()->name}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Transaction Fee </p>
+                                <span>0.00</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Available Files </p>
+                                <span>{{\Cart::session(auth()->id())->getContent()->count()}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Totals </p>
+                                <span>{{\Cart::session(auth()->id())->getTotal()}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="{{route('payment.index')}}" class="primary-btn2 text-uppercase enroll rounded-0 text-white">Proceed to Checkout</a>
+                    <a href="{{route('transcription.index')}}" class="primary-btn2 mt-3 text-uppercase enroll rounded-0 text-white">Add File</a>
+              </div>
+            </div>
+          </section>
+
+
+
+
 <div class="section-top-border">
 
 <section class="about_area section_gap">
@@ -65,7 +77,7 @@
           <div class="col-lg-6">
             <div class="h_blog_text">
               <div class="h_blog_text_inner left right">
-                <h4>How it Works</h4>
+                <h4>Files</h4>
                 <p>
                   Upload a video or audio file of less than 50Mb of size. Add the file to the list of 
 				  files you would need to be transcribed. Each file has a price which is automatically 
@@ -80,6 +92,8 @@
             </div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </section>
 

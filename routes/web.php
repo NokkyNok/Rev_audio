@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/', 'FirstController@index')-> name('index');
+Route::get('/about_us', 'FirstController@about')-> name('about');
 
 Route::resource('/transcription', 'TrancribeController');
 
@@ -32,6 +33,7 @@ Route::resource('/payment', 'PaymentController');
 
 /*cart operations managed from here */
 Route::get('/Cart/{file}', 'CartsController@add')->name('cart.add')->middleware('auth');
+Route::get('/addone/{file}', 'CartsController@adddirect')->name('cart.adddirect')->middleware('auth');
 Route::get('/Cart', 'CartsController@index')->name('cart.index')->middleware('auth');
 Route::get('/Cart/destroy/{id}', 'CartsController@destroy')->name('cart.destroy')->middleware('auth');
 

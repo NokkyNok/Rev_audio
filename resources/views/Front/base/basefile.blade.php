@@ -71,7 +71,7 @@
                   <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about-us.html">About</a>
+                  <a class="nav-link" href="/about_us">About</a>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a
