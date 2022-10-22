@@ -144,7 +144,18 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    <a class="dropdown-item" href="{{ route('client_order') }}"
+                                       >
+                                        Your orders
+                                    </a>
+                                    @can('manage-user')
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}"
+                                       >
+                                        General Dashboard
+                                    </a>
+                                    @endcan
                                 </div>
+                                
                             </li>
                             <li class="nav-item">
                                     <a class="nav-link " href="{{ route('cart.index') }}">Cart

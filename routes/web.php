@@ -31,6 +31,23 @@ Route::resource('/uploads/check_status', 'SubmitController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/payment', 'PaymentController');
 
+
+
+/* new look template */
+Route::get('/hometwo','FirstController@home');
+
+Route::get('/llogin','FirstController@login');
+Route::get('/lregister','FirstController@event');
+Route::get('/all-files','FirstController@uploads');
+
+
+
+
+
+/* client orders */
+Route::get('/your_orders','ClientOrderController@index')->name('client_order')->middleware('auth');
+Route::get('/your_orders/{id}','ClientOrderController@details')->name('client_order_details')->middleware('auth'); 
+
 /*cart operations managed from here */
 Route::get('/Cart/{file}', 'CartsController@add')->name('cart.add')->middleware('auth');
 Route::get('/addone/{file}', 'CartsController@adddirect')->name('cart.adddirect')->middleware('auth');

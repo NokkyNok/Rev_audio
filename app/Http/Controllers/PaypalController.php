@@ -84,15 +84,16 @@ class PaypalController extends Controller
                 \Cart::session(auth()->id())->clear();
 
 
-                return redirect()->route('cart.index')->with('success','Order complete! Thanks');
+                return redirect()->route('client_order')->with('success','Payment received succesfully');
 
             }
+            
                 
 
             
         }
         
-        return redirect('/');
+        return redirect()->route('cart.index')->with('warning','Payment Not succesful, try again');
 
     }
     //

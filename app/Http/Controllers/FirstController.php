@@ -19,5 +19,34 @@ class FirstController extends Controller
 
        return view('Front.about');
    }
+
+
+
+
+   /* new homw */
+   public function home()
+   {
+    return view('Front2.index');
+   }
+
+   public function login()
+   {
+    return view('Front2.login');
+   }
+
+   public function pegister()
+   {
+    return view('Front2.register');
+   }
+
+   public function event()
+   {
+    return view('Front2.event');
+   }
+   public function uploads()
+   {
+    return view('Front2.uploads');
+   }
+    
     
 }
